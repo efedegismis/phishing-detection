@@ -1,0 +1,30 @@
+# Ignore python virtual environments
+venv/
+env/
+.venv/
+
+# Ignore heavyweight data files
+data/*
+!data/.gitkeep
+
+saved_models/*
+!saved_models/.gitkeep
+
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore editor settings
+.vscode/
+.idea/
+
+# Ignore OS system files
+.DS_Store
+Thumbs.db
+
+# Ignore log and temporary files
+*.log
+*.tmp
