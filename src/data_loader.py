@@ -14,9 +14,9 @@ def load_data():
 
     # SELECT the features
     feature_cols = [
-        'URLLength', 'DomainLength', 'IsDomainIP', 'URLSimilarityIndex',
-        'CharContinuationRate', 'TLDLegitimateProb', 'URLCharProb', 'TLDLength',
-        'NoOfSubDomain', 'HasObfuscation', 'NoOfObfuscatedChar', 'ObfuscationRatio',
+        'URLLength', 'DomainLength', 'IsDomainIP',
+        'CharContinuationRate', 'TLDLength', 'NoOfSubDomain',
+        'HasObfuscation', 'NoOfObfuscatedChar', 'ObfuscationRatio',
         'NoOfLettersInURL', 'LetterRatioInURL', 'NoOfDegitsInURL', 'DegitRatioInURL',
         'NoOfEqualsInURL', 'NoOfQMarkInURL', 'NoOfAmpersandInURL',
         'NoOfOtherSpecialCharsInURL', 'SpacialCharRatioInURL', 'IsHTTPS'
