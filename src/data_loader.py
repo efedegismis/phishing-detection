@@ -28,7 +28,7 @@ def load_data():
     X = df_clean[feature_cols]
 
     # Select the target, 0= phishing, 1=legitimate
-    y = df_clean["label"] == 0
+    y = df_clean["label"]
 
     # Split the data
     # Training 70%, Validation 15%, Test 15%
@@ -44,4 +44,3 @@ if __name__ == "__main__":
     print("Training:", X_train.shape)
     print("Validation:", X_val.shape)
     print("Test:", X_test.shape)
-
