@@ -28,7 +28,7 @@ def load_data():
     X = df_clean[feature_cols]
 
     # Select the target, 0= phishing, 1=legitimate
-    y = (df_clean["label"] == 0).astype(int)
+    y = df_clean["label"] == 0
 
     # Split the data
     # Training 70%, Validation 15%, Test 15%
