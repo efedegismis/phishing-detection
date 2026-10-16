@@ -4,31 +4,27 @@ from urllib.parse import urlsplit
 from pathlib import Path
 
 
-def extract_features_from_dataset() -> pd.DataFrame:
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    data_path = BASE_DIR / "data" / "url_dataset.csv"
-
-    df = pd.read_csv(data_path)
-
+def extract_features_from_dataset(df: pd.DataFrame, url_col: str, label_col: str, label_map: dict = None) -> tuple:
     features_list = []
     labels_list = []
 
     for _, row in df.iterrows():
         try:
-            features_dict = extract_features_from_url(row['url'])
-            features_list.append(features_dict)
-            if row['type'] == 'phishing':
-                labels_list.append(0)
+            features_dict = extract_features_from_url(row[url_col])
+            if label_map is not None:
+                label = label_map[row[label_col]]
             else:
-                labels_list.append(1)
+                label = row[label_col]
+            features_list.append(features_dict)
+            labels_list.append(label)
         except Exception:
             continue  # Skip rows that cause errors during feature extraction
 
-    X_inference = pd.DataFrame(features_list)
+    X = pd.DataFrame(features_list)
 
-    y_inference = pd.DataFrame(labels_list, columns=['label'])
+    y = pd.DataFrame(labels_list, columns=['label'])
 
-    return X_inference, y_inference
+    return X, y
 
 
 def extract_features_from_url(url: str) -> dict:
@@ -85,11 +81,7 @@ def extract_features_from_url(url: str) -> dict:
 
     no_of_ampersand_in_url = url.count('&') # Count the number of '&' characters in the URL
 
-    excluded_chars = {'=', '?', '&', ':', '/', '.', '-', '_'}
-
-    no_of_other_special_chars_in_url = sum(1 for c in url if not c.isalnum() and not c.isspace() and c not in excluded_chars)
-    
-    # no_of_other_special_chars_in_url = sum(not c.isalnum() and not c.isspace() for c in url) - (no_of_equals_in_url + no_of_q_mark_in_url + no_of_ampersand_in_url) # Count the number of other special characters in the URL
+    no_of_other_special_chars_in_url = sum(not c.isalnum() and not c.isspace() for c in url) - (no_of_equals_in_url + no_of_q_mark_in_url + no_of_ampersand_in_url)
 
     special_char_ratio_in_url = no_of_other_special_chars_in_url / url_length # Calculate the special character ratio in the URL
 

@@ -47,9 +47,14 @@ def precision(y_true, y_pred):
         return 0
     return tp / (tp + fp)
 
-def recall(y_true, y_pred):
-    tp = true_positive(y_true, y_pred)
-    fn = false_negative(y_true, y_pred)
+def recall(y_true, y_pred, pos_label=1):
+    tp = 0
+    fn = 0
+    for yt, yp in zip(y_true, y_pred):
+        if yt == pos_label and yp == pos_label:
+            tp += 1
+        elif yt == pos_label and yp != pos_label:
+            fn += 1
     if tp + fn == 0:
         return 0
     return tp / (tp + fn)
