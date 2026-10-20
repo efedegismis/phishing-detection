@@ -14,7 +14,6 @@ phishing-detection/
 │   ├── 02_svm_model.ipynb
 │   ├── 03_random_forest_model.ipynb
 │   └── 04_xgboost_model.ipynb
-├── results/                 # JSON benchmark outputs from each model
 ├── .gitignore               # Ignores heavy data, model binaries, and system files
 ├── README.md                # Project documentation and setup guide
 ├── requirements.txt         # Project dependencies
