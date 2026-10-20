@@ -258,20 +258,23 @@ My main challenge was understanding why the SVM achieved very high accuracy on t
 ### Repository Architecture
 ```text
 phishing-detection/
-├── data/                    # Place raw CSV datasets here (.gitkeep preserved)
-├── src/                     # Core Python modules
+├── data/                        # Place raw CSV datasets here (.gitkeep preserved)
+├── src/                         # Core Python modules
 │   ├── __init__.py
-│   ├── data_loader.py       # Data loading, splitting, and scaling
-│   └── metrics.py           # Shared evaluation and export utility
-├── saved_models/            # Trained model binaries (.pkl / .joblib)
-├── notebooks/               # Individual teammate workspaces
+│   ├── data_loader.py           # Data loading, splitting, and scaling
+│   ├── feature_extractor.py     # Extracting features from URL
+│   └── metrics.py               # Shared evaluation and export utility
+├── saved_models/                # Trained model binaries (.pkl / .joblib)
+├── notebooks/                   # Individual teammate workspaces
 │   ├── 01_logistic_regression_model.ipynb
 │   ├── 02_svm_model.ipynb
 │   ├── 03_random_forest_model.ipynb
-│   └── 04_xgboost_model.ipynb
-├── .gitignore               # Ignores heavy data, model binaries, and system files
-├── README.md                # Project documentation and setup guide
-├── requirements.txt         # Project dependencies
+│   ├── 04_xgboost_model.ipynb
+│   ├── dataset_comparison.ipynb # Comparison of two datasets used
+│   └── final_evaluation.ipynb   # Final evaluation of 4 models
+├── .gitignore                   # Ignores heavy data, model binaries, and system files
+├── README.md                    # Project documentation and setup guide
+├── requirements.txt             # Project dependencies
 ```
 #
 ### Setup & Installation
@@ -299,8 +302,8 @@ pip install -r requirements.txt
 
 ### How to run
 1. Make sure the datasets are located in the data/ folder:
-   - url_dataset.csv
-   - PhiUSIIL_Phishing_URL_Dataset.csv
+   - [url_dataset.csv](https://www.kaggle.com/datasets/hassaanmustafavi/phishing-urls-dataset)
+   - [PhiUSIIL_Phishing_URL_Dataset.csv](https://archive.ics.uci.edu/dataset/967/phiusil-phishing-url-dataset)
 2. Select the virtual environment (venv) as the Python kernel.
 3. Open the notebooks/ folder.
 4. Run the notebooks in the following order:
