@@ -68,8 +68,8 @@ To extract features from each dataset, a feature extraction function was impleme
 
 | Category | Features | Description |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| URL Structure | URLLength, , DomainLength, , TLDLength, NoOfSubDomain | Captures long nested subdomains, unusual TLD lengths and URL paths often used in spoofing. |
-| Host | IsDomainIP, , IsHTTPS | Flags direct IP addressing and whether the URL uses HTTPS. |
+| URL Structure | URLLength, DomainLength, TLDLength, NoOfSubDomain | Captures long nested subdomains, unusual TLD lengths and URL paths often used in spoofing. |
+| Host | IsDomainIP, IsHTTPS | Flags direct IP addressing and whether the URL uses HTTPS. |
 | Character | NoOfLettersInURL, LetterRatioInURL, NoOfDegitsInURL, DegitRatioInURL, CharContinuationRate | Distinguishes word-like domain words from machine-generated token strings or hashes. |
 | Obfuscation | HasObfuscation, NoOfObfuscatedChar, ObfuscationRatio, NoOfEqualsInURL, NoOfQMarkInURL, NoOfAmpersandInURL, NoOfOtherSpecialCharsInURL, SpacialCharRatioInURL | Measures @ symbols, percent-encoding (%xx) and query parameter (=, ?, &) density. Also whether any obfuscation was detected. |
 
