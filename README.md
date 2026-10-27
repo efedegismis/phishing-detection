@@ -1,4 +1,4 @@
-# Project Report - Phishing Website Detection
+# Phishing Website Detection
 
 ## Problem Statement
 
